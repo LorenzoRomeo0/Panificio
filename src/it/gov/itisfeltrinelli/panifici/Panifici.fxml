@@ -30,12 +30,12 @@
       <HBox alignment="TOP_CENTER" prefHeight="19.0" prefWidth="602.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnCerca" mnemonicParsing="false" onAction="#cerca" text="Cerca" />
-            <ComboBox onAction="#provinciaSelection" prefWidth="150.0" promptText="Città">
+            <ComboBox fx:id="provincia" onAction="#cittaSelection" prefWidth="150.0" promptText="Provincia">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
             </ComboBox>
-            <ComboBox fx:id="provincia" prefWidth="150.0" promptText="Provincia">
+            <ComboBox fx:id="citta" prefWidth="150.0" promptText="Città">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
