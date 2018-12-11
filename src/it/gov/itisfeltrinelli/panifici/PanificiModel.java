@@ -1,6 +1,7 @@
 package it.gov.itisfeltrinelli.panifici;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +18,7 @@ public class PanificiModel {
 	 */
 	public ObservableList<String> getCitta(String provincia) {
 		ObservableList<String> list=FXCollections.observableArrayList(daoPanifici.getCitta(provincia));
+		Collections.sort(list);
 		return (ObservableList<String>) list;
 	}
 	
@@ -56,6 +58,7 @@ public class PanificiModel {
 			else
 				found=false;
 		}
+		Collections.sort(noDuplicates);
 		System.out.println(FXCollections.observableArrayList(noDuplicates));
 		return FXCollections.observableArrayList(noDuplicates);
 	}
