@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DAOPanifici {
 	Connection c;
 	Statement statement;
@@ -34,6 +35,7 @@ public class DAOPanifici {
 		getFromDb();
 		}catch(Exception e) {
 			System.out.println("Errore nell'inizializzazione");
+			e.printStackTrace();
 		}
 	}
 	
@@ -54,9 +56,8 @@ public class DAOPanifici {
 		}
 	}
 
-	private ArrayList<Panificio> getFromDb(){
+	private void getFromDb(){
 		try {
-			ArrayList<Panificio> panifici=new ArrayList<Panificio>();
 			String query="select citta from panifici";
 			ResultSet result=statement.executeQuery(query);
 			for(;result.next();) 
@@ -79,12 +80,13 @@ public class DAOPanifici {
 			
 			for(int i=0; i<citta.size(); i++) {
 				panifici.add(new Panificio(citta.get(i), provincia.get(i), regione.get(i), panetteria.get(i)));
+				System.out.println("Aggiungo "+citta.get(i));
 			}
 		}catch(Exception e) {
 			System.out.println("Errore nell'inizializzazione array ");
 			e.printStackTrace();
 		}
-		return panifici;
+		System.out.println("----------------"+panifici.size());
 	}
 		
 	public ArrayList<String> getProvince(){
